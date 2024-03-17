@@ -1,0 +1,6 @@
+graphviz
+networkx
+matplotlib
+grave
+pyqt6
+pyqt6-tools
