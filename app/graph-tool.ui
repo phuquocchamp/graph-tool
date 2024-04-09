@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1271</width>
-    <height>845</height>
+    <width>1265</width>
+    <height>780</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -18,9 +18,9 @@
     <property name="geometry">
      <rect>
       <x>30</x>
-      <y>130</y>
+      <y>100</y>
       <width>221</width>
-      <height>611</height>
+      <height>511</height>
      </rect>
     </property>
     <property name="plainText">
@@ -31,7 +31,7 @@
     <property name="geometry">
      <rect>
       <x>30</x>
-      <y>90</y>
+      <y>80</y>
       <width>91</width>
       <height>16</height>
      </rect>
@@ -69,8 +69,8 @@
    <widget class="QPushButton" name="exportButton">
     <property name="geometry">
      <rect>
-      <x>1170</x>
-      <y>770</y>
+      <x>1160</x>
+      <y>690</y>
       <width>91</width>
       <height>34</height>
      </rect>
@@ -84,19 +84,78 @@
      <rect>
       <x>290</x>
       <y>30</y>
-      <width>861</width>
-      <height>771</height>
+      <width>851</width>
+      <height>691</height>
      </rect>
     </property>
     <layout class="QGridLayout" name="graphArea"/>
    </widget>
+   <widget class="QLabel" name="TerminalLabel">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>610</y>
+      <width>91</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Terminal set</string>
+    </property>
+   </widget>
+   <widget class="QPlainTextEdit" name="TerminalTextEdit">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>630</y>
+      <width>221</width>
+      <height>87</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QSpinBox" name="Generation">
+    <property name="geometry">
+     <rect>
+      <x>1160</x>
+      <y>350</y>
+      <width>91</width>
+      <height>21</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLabel" name="GenerationLabel">
+    <property name="geometry">
+     <rect>
+      <x>1170</x>
+      <y>330</y>
+      <width>55</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Generation</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="AutoIncreaseButton">
+    <property name="geometry">
+     <rect>
+      <x>1160</x>
+      <y>400</y>
+      <width>93</width>
+      <height>28</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Auto</string>
+    </property>
+   </widget>
    <widget class="QPushButton" name="drawButttn">
     <property name="geometry">
      <rect>
-      <x>170</x>
-      <y>760</y>
-      <width>75</width>
-      <height>23</height>
+      <x>1160</x>
+      <y>640</y>
+      <width>93</width>
+      <height>28</height>
      </rect>
     </property>
     <property name="text">
@@ -109,8 +168,8 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1271</width>
-     <height>21</height>
+     <width>1265</width>
+     <height>26</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuVisual_Graph_Tool">

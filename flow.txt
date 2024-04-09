@@ -1,0 +1,5 @@
+Đọc input dạng thường 
+Chuyển thành dạng như steinlib
+Chạy cpp
+Xuất cá thể tốt nhất mỗi thế hệ thành mỗi file đánh số 1-n
+Render đồ thị bằng cách đọc file mỗi khi đổi thế hệ

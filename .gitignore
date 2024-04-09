@@ -1,1 +1,4 @@
 venv
+*.class
+*.sm
+*.exe
