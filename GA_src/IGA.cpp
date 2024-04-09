@@ -126,9 +126,9 @@ int main_algorithm(std::ofstream& out) {
 int main()
 {
     MapType testset_start;
-    SetType included_sets(SETS_BENCHMARK);
+    SetType included_sets({"VI"});
     SetType excluded_sets;
-    SetType included_tests({"world666"});
+    SetType included_tests;
     SetType excluded_tests;
     for (int i = 0; i < 5; i++) {
         run_tests("IGA", 

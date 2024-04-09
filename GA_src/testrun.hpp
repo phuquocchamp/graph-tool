@@ -9,26 +9,27 @@
 #include <set>
 namespace fs = std::filesystem;
 
-#define VERBOSE 0
+#define VERBOSE 1
 
 // same run order for different program 
 const string TESTSETS[] = {
-    "P4E",
-    "P4Z",
-    "P6E",
-    "P6Z",
+    "VI",
+    // "P4E",
+    // "P4Z",
+    // "P6E",
+    // "P6Z",
     "SP", 
-    "X",
-    "MC",
-    "PUC",
-    "I080",
-    "I160",
-    "B",
-    "C", 
-    "D", 
-    "E", 
-    // "I320",
-    "notestset"
+    // "X",
+    // "MC",
+    // "PUC",
+    // "I080",
+    // "I160",
+    // "B",
+    // "C", 
+    // "D", 
+    // "E", 
+    // // "I320",
+    // "notestset"
 };
 
 // Result format: program | testcase | result | time per line
@@ -46,7 +47,7 @@ const SetType TESTS_STRONG({
 });
 const SetType TESTS_DEBUG({"p466"});
 
-const SetType SETS_DEBUG({"MC"});
+const SetType SETS_DEBUG({"SP","MC"});
 const SetType SETS_PROTOTYPE({"SP", "MC", "X", "P4E"});
 const SetType SETS_NEW({"P4E", "P4Z", "P6E", "P6Z", "1R", "2R", "I080", "I160"});
 const SetType SETS_GOOD({"P4E", "P4Z", "P6E", "P6Z"});
@@ -98,10 +99,10 @@ void run_tests(
         excluded_tests = correct_names(excluded_tests);
     }
 
-    string activity_log_path = "..\\tests_results\\activity_" + program_name + ".log"; 
+    string activity_log_path = ".\\tests_results\\activity_" + program_name + ".log"; 
     freopen(activity_log_path.c_str(), append_to_log ? "a" : "w", stdout);
 
-    string result_path = "..\\tests_results\\results_" + program_name + ".txt"; 
+    string result_path = ".\\tests_results\\results_" + program_name + ".txt"; 
     std::ofstream resf(result_path, std::ios_base::app);
 
     resf << "\n_____________________________________________\n";
@@ -116,7 +117,7 @@ void run_tests(
             cout << testset << " is not included\n";
             continue;
         }
-        string dirpath = "..\\tests\\" + testset;
+        string dirpath = ".\\tests\\" + testset;
         string start_test = testset_start[testset];
         bool skipped = !start_test.empty();
         try
@@ -125,7 +126,7 @@ void run_tests(
                 auto ipath = entry.path();
                 if (ipath.extension() != ".stp") continue;
                 string testname = ipath.filename().replace_extension().string();
-                string outf_path = "..\\tests_results\\" + testset 
+                string outf_path = ".\\tests_results\\" + testset 
                     + "\\" + testname + "_" + program_name + ".stp-result";
                 string rinpf_path = fs::path(ipath.string()).replace_filename(REDNAME + "_" + testname).replace_extension(".stp").string();
                 string opath = IS_RED ? rinpf_path : outf_path;
