@@ -8,7 +8,7 @@
 
 
 const int STEP = std::min(50, NUM_GEN / 20);
-const int MILESTONE = NUM_GEN / 10; // for observing
+const int MILESTONE = 1; // for observing
 
 #define popsize (population.size())
 void debug_social(Social& pop, string title = "") {
