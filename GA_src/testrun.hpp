@@ -18,7 +18,7 @@ const string TESTSETS[] = {
     // "P4Z",
     // "P6E",
     // "P6Z",
-    "SP", 
+    // "SP", 
     // "X",
     // "MC",
     // "PUC",

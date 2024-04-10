@@ -3,6 +3,7 @@
 
 Social population;
 #define best_value (population[0].get_objval() + added_cost)
+#define best_gene (population[0].gene_to_string())
 
 const Real P_CROSS_MIN = 0.25;
 const Real P_CROSS_MAX = 0.95;
@@ -114,7 +115,7 @@ int main_algorithm(std::ofstream& out) {
                 out << "Generation " << igen << "(" << popsize << "): " << population[0] << " with " << best_value << '\n';
         }
         if (igen % MILESTONE == 0)
-            cout << "At " << igen << " got " << best_value << '\n';
+            cout << "At " << igen << " got " << best_gene <<" "<<best_value<< '\n';
     }
     sort(all_of(population));
     out << "Final " << population[0] << " with " << best_value;
@@ -130,7 +131,7 @@ int main()
     SetType excluded_sets;
     SetType included_tests;
     SetType excluded_tests;
-    for (int i = 0; i < 5; i++) {
+    for (int i = 0; i < 1; i++) {
         run_tests("IGA", 
             main_algorithm, 
             false, 
