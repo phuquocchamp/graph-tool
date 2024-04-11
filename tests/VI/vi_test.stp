@@ -1,7 +1,7 @@
 33D32945 STP File, STP Format Version 1.0
 
 SECTION Comment
-Name    "antiwheel5"
+Name    "vi_test"
 Creator "Thorsten Koch and Alexander Martin"
 Remark  "Odd antiwheel with 5 nodes"
 END
