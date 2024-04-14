@@ -4,6 +4,8 @@ import networkx as nx
 from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
 from matplotlib.backends.backend_qt5agg import NavigationToolbar2QT as NavigationToolbar
 
+from parser import parse,write_to_test
+
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -103,13 +105,16 @@ class Ui_MainWindow(object):
     def submitDraw(self):
         rdata = self.inputData.toPlainText()
         grapharray = rdata.split("\n")
+        edges = []
+        terminal = []
         for i in range(len(grapharray)):
-            print("E ",grapharray[i])
-        self.draw_weighted_graph_text(rdata)
+            edges.append(grapharray[i].split(" "))
         terminalData = self.TerminalTextEdit.toPlainText()
-        terminalArray = terminalData.split(" ")
-        for i in range(len(terminalArray)):
-            print("T ",terminalArray[i])
+        terminal = terminalData.split(" ")
+        write_to_test(parse(edges, terminal))
+
+        self.draw_weighted_graph_text(rdata)
+        
 
     def draw_weighted_graph_text(self, rdata):
 
@@ -124,6 +129,7 @@ class Ui_MainWindow(object):
                 target = int(data[1])
                 weight = int(data[2])
                 G.add_edge(source, target, weight=weight)
+            
 
         # Draw the graph
         pos = nx.spring_layout(G)  # Compute positions for drawing
