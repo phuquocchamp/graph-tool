@@ -2,3 +2,4 @@ venv
 *.class
 *.sm
 *.exe
+temp.txt

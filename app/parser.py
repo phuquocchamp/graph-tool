@@ -4,7 +4,7 @@ import settings
 def parse(edges,terminal):
     res=[]
     res.append("SECTION Graph\n")
-    edges_count = len(terminal)
+    edges_count = len(edges)
     nodes = set()
     for edge in edges:
         nodes.add(edge[0])

@@ -4,8 +4,9 @@ import networkx as nx
 from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
 from matplotlib.backends.backend_qt5agg import NavigationToolbar2QT as NavigationToolbar
 
+import settings
 from parser import parse,write_to_test
-
+from executing import runcmd
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -112,6 +113,8 @@ class Ui_MainWindow(object):
         terminalData = self.TerminalTextEdit.toPlainText()
         terminal = terminalData.split(" ")
         write_to_test(parse(edges, terminal))
+        print(runcmd(settings.GA_command))
+        # print(runcmd("ls"))
 
         self.draw_weighted_graph_text(rdata)
         
