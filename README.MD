@@ -23,3 +23,11 @@ pip install -r requirements.txt
 ```bash
 pyuic6 -x graph-tool.ui -o .\graph-tool.py
 ```
+
+```bash
+g++ .\GA_src\IGA.cpp -o iga.exe
+```
+
+```bash
+.\run.bat
+```
