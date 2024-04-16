@@ -19,3 +19,10 @@ def write_append(text, path):
 def write_array(array, path):
     for a in array:
         write_append(a, path)
+
+def read_to_array(path):
+    res = []
+    with open(path, 'r') as f:
+        for line in f:
+            res.append(line)
+    return res

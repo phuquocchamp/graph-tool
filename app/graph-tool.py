@@ -5,7 +5,7 @@ from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
 from matplotlib.backends.backend_qt5agg import NavigationToolbar2QT as NavigationToolbar
 
 import settings
-from parser import parse,write_to_test
+from parser import parse,write_to_test,parse_generations
 from executing import runcmd
 
 class Ui_MainWindow(object):
@@ -117,6 +117,7 @@ class Ui_MainWindow(object):
         # print(runcmd("ls"))
 
         self.draw_weighted_graph_text(rdata)
+        # print(parse_generations())
         
 
     def draw_weighted_graph_text(self, rdata):

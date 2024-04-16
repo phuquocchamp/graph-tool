@@ -1,4 +1,4 @@
-from file_tool import create_file,clear_file,write_array
+from file_tool import create_file,clear_file,write_array,read_to_array
 import settings
 
 def parse(edges,terminal):
@@ -30,3 +30,12 @@ def write_to_test(arr):
     create_file(settings.test_path)
     clear_file(settings.test_path)
     write_array(arr,settings.test_path)
+
+
+def parse_generations():
+    arr = read_to_array(settings.generations_path)
+    preprocessed_arr = []
+    for a in arr:
+        if a[0:3] == "At ":
+            preprocessed_arr.append(a)
+    print(preprocessed_arr)
