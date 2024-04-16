@@ -117,7 +117,7 @@ class Ui_MainWindow(object):
         # print(runcmd("ls"))
 
         self.draw_weighted_graph_text(rdata)
-        # print(parse_generations())
+        generations = parse_generations(edges)
         
 
     def draw_weighted_graph_text(self, rdata):

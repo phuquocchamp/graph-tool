@@ -1,5 +1,7 @@
 from file_tool import create_file,clear_file,write_array,read_to_array
 import settings
+from entities.Chromosome import Chromosome
+from algorithms.graph import caculate_sum_of_edges
 
 def parse(edges,terminal):
     res=[]
@@ -32,10 +34,16 @@ def write_to_test(arr):
     write_array(arr,settings.test_path)
 
 
-def parse_generations():
+def parse_generations(edges):
     arr = read_to_array(settings.generations_path)
     preprocessed_arr = []
     for a in arr:
         if a[0:3] == "At ":
             preprocessed_arr.append(a)
-    print(preprocessed_arr)
+    initial_fitness = caculate_sum_of_edges(edges)
+    res = [Chromosome(len(edges),initial_fitness)]
+    for a in preprocessed_arr:
+        res.append(Chromosome(a.split(" ")[3],int(a.split(" ")[4][:-1])))
+    for r in res:
+        print(r.__str__())
+    return res
