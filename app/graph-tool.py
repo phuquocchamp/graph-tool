@@ -1,14 +1,17 @@
 from PyQt6 import QtCore, QtGui, QtWidgets
 import matplotlib.pyplot as plt
 import networkx as nx
+import time
 from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
 from matplotlib.backends.backend_qt5agg import NavigationToolbar2QT as NavigationToolbar
 
 import settings
-from parser import parse,write_to_test,parse_generations
+from parser import parse, write_to_test, parse_generations
 from executing import runcmd
 
+
 class Ui_MainWindow(object):
+
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(1265, 780)
@@ -74,14 +77,6 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
-
-    # add canvas
-        self.figure = plt.figure()
-        self.canvas = FigureCanvas(self.figure)
-        self.graphArea.addWidget(self.canvas)
-
-        # draw clicked.
-        self.drawButttn.clicked.connect(self.submitDraw)
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(parent=MainWindow)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 1271, 21))
@@ -103,7 +98,34 @@ class Ui_MainWindow(object):
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
+        # add canvas
+        self.figure = plt.figure()
+        self.canvas = FigureCanvas(self.figure)
+        self.graphArea.addWidget(self.canvas)
+
+        # draw clicked.
+        self.drawButttn.clicked.connect(self.submitDraw)
+
+        # draw graph follow gen
+        self.AutoIncreaseButton.clicked.connect(self.autoDrawGraphByGen)
+
+        # generation spinbox
+        self.Generation.valueChanged.connect(self.drawGraphByGen)
+
     def submitDraw(self):
+        rdata = self.inputData.toPlainText()
+        self.draw_weighted_graph_text(rdata)
+
+    def autoDrawGraphByGen(self):
+        for count in range(1, 16):
+            self.Generation.setValue(count)
+            self.Generation.valueChanged.emit(count)
+            time.sleep(5)
+
+    def drawGraphByGen(self, count):
+
+        count = int(self.Generation.value())
+
         rdata = self.inputData.toPlainText()
         grapharray = rdata.split("\n")
         edges = []
@@ -113,12 +135,53 @@ class Ui_MainWindow(object):
         terminalData = self.TerminalTextEdit.toPlainText()
         terminal = terminalData.split(" ")
         write_to_test(parse(edges, terminal))
-        print(runcmd(settings.GA_command))
+        # print(runcmd(settings.GA_command))
         # print(runcmd("ls"))
 
-        self.draw_weighted_graph_text(rdata)
         generations = parse_generations(edges)
-        
+        generations.pop(0)
+        self.highline_road(str(generations[count]), rdata)
+
+    # Highline road
+    def highline_road(self, gen, rdata):
+        print("Called highline_road")
+        self.figure.clf()
+        # Create a new graph
+        G = nx.Graph()
+        ecount = 0  # Check selected gen
+        for line in rdata.split("\n"):
+            if line.strip():
+                data = line.strip().split()
+                if gen[ecount] == "1":
+                    G.add_edge(data[0], data[1], color="red", weight=int(data[2]))
+                else:
+                    G.add_edge(data[0], data[1], color="black", weight=int(data[2]))
+
+                print(f"{gen[ecount]} => {line}")
+
+                ecount += 1
+
+        colors = nx.get_edge_attributes(G, "color").values()
+        weights = nx.get_edge_attributes(G, "weight").values()
+
+        # Draw the graph
+        pos = nx.spring_layout(G)  # Compute positions for drawing
+
+        options = {
+            "with_labels": True,
+            "font_size": 15,
+            "node_size": 500,
+            "node_color": "white",
+            "edge_color": colors,
+            "linewidths": list(weights),
+            "width": 3,
+        }
+        pos = nx.spring_layout(G, seed=1)
+        nx.draw(G, pos, **options)
+        edge_labels = nx.get_edge_attributes(G, "weight")
+        nx.draw_networkx_edge_labels(G, pos, edge_labels=edge_labels, font_color="blue")
+
+        self.canvas.draw()
 
     def draw_weighted_graph_text(self, rdata):
 
@@ -133,7 +196,6 @@ class Ui_MainWindow(object):
                 target = int(data[1])
                 weight = int(data[2])
                 G.add_edge(source, target, weight=weight)
-            
 
         # Draw the graph
         pos = nx.spring_layout(G)  # Compute positions for drawing
@@ -143,12 +205,12 @@ class Ui_MainWindow(object):
             "font_size": 15,
             "node_size": 500,
             "node_color": "white",
-            "edgecolors": "black",
+            # "edgecolors": "black",
             "linewidths": 3,
             "width": 3,
         }
-
-        nx.draw(G, pos, **options)
+        pos = nx.spring_layout(G, seed=1)
+        nx.draw(G, pos, edge_color="black", **options)
         edge_labels = nx.get_edge_attributes(G, "weight")
         nx.draw_networkx_edge_labels(G, pos, edge_labels=edge_labels, font_color="blue")
 
@@ -165,13 +227,16 @@ class Ui_MainWindow(object):
         self.GenerationLabel.setText(_translate("MainWindow", "Generation"))
         self.AutoIncreaseButton.setText(_translate("MainWindow", "Auto"))
         self.drawButttn.setText(_translate("MainWindow", "Draw"))
-        self.menuVisual_Graph_Tool.setTitle(_translate("MainWindow", "Visual Graph Tool"))
+        self.menuVisual_Graph_Tool.setTitle(
+            _translate("MainWindow", "Visual Graph Tool")
+        )
         self.fileMenu.setTitle(_translate("MainWindow", "File"))
         self.editMenu.setTitle(_translate("MainWindow", "Edit"))
 
 
 if __name__ == "__main__":
     import sys
+
     app = QtWidgets.QApplication(sys.argv)
     MainWindow = QtWidgets.QMainWindow()
     ui = Ui_MainWindow()
