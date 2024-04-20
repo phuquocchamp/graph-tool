@@ -7,11 +7,8 @@
     <x>0</x>
     <y>0</y>
     <width>1265</width>
-    <height>782</height>
+    <height>777</height>
    </rect>
-  </property>
-  <property name="mouseTracking">
-   <bool>true</bool>
   </property>
   <property name="windowTitle">
    <string>Visualize Graph Data</string>
@@ -20,20 +17,20 @@
    <widget class="QPlainTextEdit" name="inputData">
     <property name="geometry">
      <rect>
-      <x>10</x>
+      <x>20</x>
       <y>80</y>
       <width>211</width>
-      <height>531</height>
+      <height>521</height>
      </rect>
     </property>
     <property name="plainText">
      <string/>
     </property>
    </widget>
-   <widget class="QLabel" name="label">
+   <widget class="QLabel" name="graphDataLabel">
     <property name="geometry">
      <rect>
-      <x>10</x>
+      <x>20</x>
       <y>60</y>
       <width>91</width>
       <height>16</height>
@@ -42,8 +39,6 @@
     <property name="font">
      <font>
       <pointsize>9</pointsize>
-      <weight>75</weight>
-      <bold>true</bold>
      </font>
     </property>
     <property name="text">
@@ -53,8 +48,8 @@
    <widget class="QPushButton" name="undirectedButton">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>20</y>
+      <x>20</x>
+      <y>10</y>
       <width>94</width>
       <height>34</height>
      </rect>
@@ -66,8 +61,8 @@
    <widget class="QPushButton" name="directedButton">
     <property name="geometry">
      <rect>
-      <x>130</x>
-      <y>20</y>
+      <x>140</x>
+      <y>10</y>
       <width>94</width>
       <height>34</height>
      </rect>
@@ -79,17 +74,11 @@
    <widget class="QPushButton" name="exportButton">
     <property name="geometry">
      <rect>
-      <x>1160</x>
-      <y>700</y>
+      <x>1150</x>
+      <y>690</y>
       <width>91</width>
       <height>34</height>
      </rect>
-    </property>
-    <property name="font">
-     <font>
-      <weight>75</weight>
-      <bold>true</bold>
-     </font>
     </property>
     <property name="text">
      <string>Export</string>
@@ -98,19 +87,19 @@
    <widget class="QWidget" name="gridLayoutWidget">
     <property name="geometry">
      <rect>
-      <x>240</x>
+      <x>250</x>
       <y>10</y>
-      <width>911</width>
-      <height>731</height>
+      <width>881</width>
+      <height>721</height>
      </rect>
     </property>
     <layout class="QGridLayout" name="graphArea"/>
    </widget>
-   <widget class="QLabel" name="TerminalLabel">
+   <widget class="QLabel" name="terminalLabel">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>630</y>
+      <x>20</x>
+      <y>620</y>
       <width>91</width>
       <height>16</height>
      </rect>
@@ -118,97 +107,137 @@
     <property name="font">
      <font>
       <pointsize>9</pointsize>
-      <weight>75</weight>
-      <bold>true</bold>
      </font>
     </property>
     <property name="text">
      <string>Terminal set</string>
     </property>
    </widget>
-   <widget class="QPlainTextEdit" name="TerminalTextEdit">
+   <widget class="QPlainTextEdit" name="terminalData">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>656</y>
+      <x>20</x>
+      <y>640</y>
       <width>211</width>
-      <height>91</height>
+      <height>87</height>
      </rect>
     </property>
    </widget>
-   <widget class="QSpinBox" name="Generation">
+   <widget class="QSpinBox" name="generationSpinBox">
     <property name="geometry">
      <rect>
-      <x>1160</x>
-      <y>540</y>
+      <x>1150</x>
+      <y>560</y>
       <width>91</width>
       <height>21</height>
      </rect>
     </property>
-    <property name="font">
-     <font>
-      <pointsize>10</pointsize>
-      <weight>75</weight>
-      <bold>true</bold>
-     </font>
-    </property>
    </widget>
-   <widget class="QLabel" name="GenerationLabel">
+   <widget class="QLabel" name="generationLabel">
     <property name="geometry">
      <rect>
-      <x>1160</x>
-      <y>520</y>
-      <width>81</width>
+      <x>1150</x>
+      <y>540</y>
+      <width>71</width>
       <height>16</height>
      </rect>
     </property>
     <property name="font">
      <font>
       <pointsize>9</pointsize>
-      <weight>75</weight>
-      <bold>true</bold>
      </font>
     </property>
     <property name="text">
      <string>Generation</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="AutoIncreaseButton">
+   <widget class="QPushButton" name="autoGenBtn">
     <property name="geometry">
      <rect>
-      <x>1160</x>
-      <y>580</y>
+      <x>1150</x>
+      <y>600</y>
       <width>93</width>
       <height>28</height>
      </rect>
-    </property>
-    <property name="font">
-     <font>
-      <weight>75</weight>
-      <bold>true</bold>
-     </font>
     </property>
     <property name="text">
      <string>Auto</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="drawButttn">
+   <widget class="QPushButton" name="drawButton">
     <property name="geometry">
      <rect>
-      <x>1160</x>
+      <x>1150</x>
       <y>650</y>
       <width>93</width>
       <height>28</height>
      </rect>
     </property>
-    <property name="font">
-     <font>
-      <weight>75</weight>
-      <bold>true</bold>
-     </font>
-    </property>
     <property name="text">
      <string>Draw</string>
+    </property>
+   </widget>
+   <widget class="QComboBox" name="styleGraph">
+    <property name="geometry">
+     <rect>
+      <x>1150</x>
+      <y>500</y>
+      <width>91</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <item>
+     <property name="text">
+      <string>Style 1</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Style 2</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Style 3</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Style 4</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Style 5</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Style 6</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Style 7</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Style 8</string>
+     </property>
+    </item>
+   </widget>
+   <widget class="QLabel" name="styleGraphLabel">
+    <property name="geometry">
+     <rect>
+      <x>1150</x>
+      <y>470</y>
+      <width>91</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Style Graph</string>
     </property>
    </widget>
   </widget>
