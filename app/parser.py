@@ -44,6 +44,6 @@ def parse_generations(edges):
     res = [Chromosome(len(edges),initial_fitness)]
     for a in preprocessed_arr:
         res.append(Chromosome(a.split(" ")[3],int(a.split(" ")[4][:-1])))
-    for r in res:
-        print(r.__str__())
+    # for r in res:
+    #     print(r.__str__())
     return res
