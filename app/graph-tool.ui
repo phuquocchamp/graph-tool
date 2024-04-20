@@ -7,20 +7,23 @@
     <x>0</x>
     <y>0</y>
     <width>1265</width>
-    <height>780</height>
+    <height>782</height>
    </rect>
   </property>
+  <property name="mouseTracking">
+   <bool>true</bool>
+  </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>Visualize Graph Data</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QPlainTextEdit" name="inputData">
     <property name="geometry">
      <rect>
-      <x>30</x>
-      <y>100</y>
-      <width>221</width>
-      <height>511</height>
+      <x>10</x>
+      <y>80</y>
+      <width>211</width>
+      <height>531</height>
      </rect>
     </property>
     <property name="plainText">
@@ -30,11 +33,18 @@
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>30</x>
-      <y>80</y>
+      <x>10</x>
+      <y>60</y>
       <width>91</width>
       <height>16</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>9</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
     </property>
     <property name="text">
      <string>Graph Data:</string>
@@ -43,8 +53,8 @@
    <widget class="QPushButton" name="undirectedButton">
     <property name="geometry">
      <rect>
-      <x>30</x>
-      <y>30</y>
+      <x>10</x>
+      <y>20</y>
       <width>94</width>
       <height>34</height>
      </rect>
@@ -56,8 +66,8 @@
    <widget class="QPushButton" name="directedButton">
     <property name="geometry">
      <rect>
-      <x>160</x>
-      <y>30</y>
+      <x>130</x>
+      <y>20</y>
       <width>94</width>
       <height>34</height>
      </rect>
@@ -70,10 +80,16 @@
     <property name="geometry">
      <rect>
       <x>1160</x>
-      <y>690</y>
+      <y>700</y>
       <width>91</width>
       <height>34</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
     </property>
     <property name="text">
      <string>Export</string>
@@ -82,10 +98,10 @@
    <widget class="QWidget" name="gridLayoutWidget">
     <property name="geometry">
      <rect>
-      <x>290</x>
-      <y>30</y>
-      <width>851</width>
-      <height>691</height>
+      <x>240</x>
+      <y>10</y>
+      <width>911</width>
+      <height>731</height>
      </rect>
     </property>
     <layout class="QGridLayout" name="graphArea"/>
@@ -93,11 +109,18 @@
    <widget class="QLabel" name="TerminalLabel">
     <property name="geometry">
      <rect>
-      <x>40</x>
-      <y>610</y>
+      <x>10</x>
+      <y>630</y>
       <width>91</width>
       <height>16</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>9</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
     </property>
     <property name="text">
      <string>Terminal set</string>
@@ -106,10 +129,10 @@
    <widget class="QPlainTextEdit" name="TerminalTextEdit">
     <property name="geometry">
      <rect>
-      <x>30</x>
-      <y>630</y>
-      <width>221</width>
-      <height>87</height>
+      <x>10</x>
+      <y>656</y>
+      <width>211</width>
+      <height>91</height>
      </rect>
     </property>
    </widget>
@@ -117,20 +140,34 @@
     <property name="geometry">
      <rect>
       <x>1160</x>
-      <y>350</y>
+      <y>540</y>
       <width>91</width>
       <height>21</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>10</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
     </property>
    </widget>
    <widget class="QLabel" name="GenerationLabel">
     <property name="geometry">
      <rect>
-      <x>1170</x>
-      <y>330</y>
-      <width>55</width>
+      <x>1160</x>
+      <y>520</y>
+      <width>81</width>
       <height>16</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>9</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
     </property>
     <property name="text">
      <string>Generation</string>
@@ -140,10 +177,16 @@
     <property name="geometry">
      <rect>
       <x>1160</x>
-      <y>400</y>
+      <y>580</y>
       <width>93</width>
       <height>28</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
     </property>
     <property name="text">
      <string>Auto</string>
@@ -153,10 +196,16 @@
     <property name="geometry">
      <rect>
       <x>1160</x>
-      <y>640</y>
+      <y>650</y>
       <width>93</width>
       <height>28</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
     </property>
     <property name="text">
      <string>Draw</string>
@@ -169,7 +218,7 @@
      <x>0</x>
      <y>0</y>
      <width>1265</width>
-     <height>26</height>
+     <height>21</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuVisual_Graph_Tool">
